@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, Button, Box, Stack, Container } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Stack, Container } from "@mui/material";
 import { navStack, logoStyle } from "../../styles/navbar/navbar.styles"
 
 const Navbar = () => {

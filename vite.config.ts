@@ -1,12 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+// vitest.config.ts
+import { defineConfig } from 'vitest/config';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  test:{
-    environment:"jsdom",
-    globals:true,
-    setupFiles:"./src/test/setup.ts"
+  test: {
+    globals: true,           // Enables Jest-like global functions like describe, it, etc.
+    environment: 'jsdom',    // For testing in a browser-like environment
+    setupFiles: './src/setupTests.ts', // Path to your test setup file
   },
-})
+});
