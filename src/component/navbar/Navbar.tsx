@@ -1,18 +1,31 @@
-import { AppBar, Toolbar, Typography, Button, Stack, Container } from "@mui/material";
-import { navStack, logoStyle } from "../../styles/navbar/navbar.styles"
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Stack,
+  Container,
+} from "@mui/material";
+import { navStack, logoStyle } from "../../styles/navbar/navbar.styles";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <AppBar position="fixed" color="transparent" elevation={0} sx={{ width: "100%" }}>
+    <AppBar
+      position="fixed"
+      color="transparent"
+      elevation={0}
+      sx={{ width: "100%" }}
+    >
       <Toolbar disableGutters>
         <Container maxWidth="lg">
           <Stack direction="row" spacing={4} sx={navStack}>
             <Typography variant="h6" sx={logoStyle}>
-              BrewBuddy
+              <Link to="/"> BrewBuddy</Link>
             </Typography>
-            <Button color="inherit">Menu</Button>
-            <Button color="inherit">How It Works</Button>
-            <Button color="inherit">Sign In</Button>
+            <Link to="/menu">Menu</Link>
+            <Link to="/about">About</Link>
+            <Link to="/login">Login</Link>
           </Stack>
         </Container>
       </Toolbar>
