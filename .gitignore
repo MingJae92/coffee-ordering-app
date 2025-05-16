@@ -14,6 +14,7 @@ dist-ssr/
 *.local
 
 # Environment files
+.env
 /Backend/config/.env
 
 # Editor directories and files
