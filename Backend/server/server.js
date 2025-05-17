@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: "../config/.env" });
 
 const app = express();
-const PORT = process.env.SERVER_PORT ; // fallback if env var missing
+const PORT = process.env.SERVER_PORT | 5000 ; // fallback if env var missing
 
 app.listen(PORT, () => {
   console.log(`Listen on port: ${PORT}`);
