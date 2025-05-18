@@ -3,6 +3,6 @@ import authController from "../../controllers/AuthControllers/authControllers.js
 
 const router = express.Router()
 
-router.post("/api/auth/google", authController)
+router.post("/", authController)
 
 export default router

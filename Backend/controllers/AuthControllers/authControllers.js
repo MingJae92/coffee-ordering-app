@@ -30,9 +30,11 @@ const authController = async (req, res) => {
       email: payload.email,
     };
 
+    console.log("✅ Token successfully verified for:", user.email); // ✅ Added log here
+
     return res.status(200).json({ user });
   } catch (error) {
-    console.error("Token verification failed:", error);
+    console.error("❌ Token verification failed:", error);
     return res.status(401).json({ message: "Token verification failed" });
   }
 };

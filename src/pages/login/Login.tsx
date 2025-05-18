@@ -1,30 +1,38 @@
-import React from "react";
 import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../component/navbar/Navbar";
 import Footer from "../../component/footer/Footer";
 import { useAuth } from "../../component/context/AuthContext";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth(); // Destructure login function from your auth context
+  const { login } = useAuth(); 
 
   const handleSuccess = async (credentialResponse: CredentialResponse) => {
     const token = credentialResponse.credential;
-  console.log(token)
+    console.log(token);
     if (!token) {
       console.log("No credentials returned");
       return;
     }
 
-    console.log("Login success!");
+    try {
+      const response = await axios.post("http://localhost:7128/api/auth", {
+        token,
+      });
+      const user = response.data.user;
+      if (user) {
+        login(user);
+        navigate("/dashboard");
+      } else {
+        console.log("No user info returned from backend");
+      }
+    } catch (error) {
+      console.log(error)
+      console.log("Login failed"!);
 
-    // Call the login function from AuthContext and pass token or user info
-    // You might want to call your backend here to verify token and get user data
-    login(token);
-  
-
-    // After login is successful, navigate to dashboard
+    }
     navigate("/dashboard");
   };
 
