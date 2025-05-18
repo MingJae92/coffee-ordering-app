@@ -19,6 +19,7 @@ const authController = async (req, res) => {
     });
 
     const payload = ticket.getPayload();
+    console.log(payload);
 
     if (!payload) {
       return res.status(401).json({ message: "Invalid token payload" });
@@ -29,8 +30,8 @@ const authController = async (req, res) => {
       name: payload.name,
       email: payload.email,
     };
-
-    console.log("✅ Token successfully verified for:", user.email); // ✅ Added log here
+    const { email, name, id } = user;
+    console.log("✅ Token successfully verified for:", { email, name, id }); 
 
     return res.status(200).json({ user });
   } catch (error) {

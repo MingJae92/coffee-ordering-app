@@ -11,6 +11,7 @@ const Login = () => {
 
   const handleSuccess = async (credentialResponse: CredentialResponse) => {
     const token = credentialResponse.credential;
+    console.log("Received token:", token);
     console.log(token);
     if (!token) {
       console.log("No credentials returned");
