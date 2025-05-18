@@ -7,8 +7,9 @@ interface ProtectedRoutesProps {
 
 const ProtectedRoute = ({ children }: ProtectedRoutesProps) => {
   const { user } = useAuth();
+
   if (!user) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
   return <>{children}</>;
 };

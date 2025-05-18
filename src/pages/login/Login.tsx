@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleSuccess = async (credentialResponse: CredentialResponse) => {
     const token = credentialResponse.credential;
-
+  console.log(token)
     if (!token) {
       console.log("No credentials returned");
       return;
@@ -21,7 +21,8 @@ const Login = () => {
 
     // Call the login function from AuthContext and pass token or user info
     // You might want to call your backend here to verify token and get user data
-   
+    login(token);
+  
 
     // After login is successful, navigate to dashboard
     navigate("/dashboard");

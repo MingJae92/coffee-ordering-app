@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AuthContextDataTypes,
@@ -15,18 +15,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<UserDataTypes | null>(null);
   const navigate = useNavigate();
 
-  // 🔁 Rehydrate auth state from localStorage
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
-
   const login = (userData: UserDataTypes) => {
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
-    navigate("/dashboard");
+    navigate("/dashboard"); // or your desired path
   };
 
   const logout = () => {

@@ -7,5 +7,6 @@ export interface UserDataTypes {
 export interface AuthContextDataTypes {
   user: UserDataTypes | null;
   login: (user: UserDataTypes) => void;
+  
   logout: () => void;
 }
