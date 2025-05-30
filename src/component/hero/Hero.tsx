@@ -1,25 +1,24 @@
 import { Box, Typography, Button } from "@mui/material";
-import { heroStyles } from "../../styles/hero/hero.styles"; // Make sure you have these styles correctly imported
+import { heroStyles } from "../../styles/hero/hero.styles";
 
 const Hero = () => {
   return (
     <Box sx={heroStyles.container}>
       <Box sx={heroStyles.overlay} />
-      
-      {/* Main Heading (H1) */}
-      <Typography variant="h2" component="h1" sx={heroStyles.heading}>
-        Welcome to BrewBuddy Coffee!
-      </Typography>
-      
-      {/* Subheading (Paragraph) */}
-      <Typography variant="h6" component="p" sx={heroStyles.subHeading}>
-        Freshly brewed coffee, delivered to your door.
-      </Typography>
-      
-      {/* Call-to-Action Button */}
-      <Button variant="contained" color="primary" sx={heroStyles.button}>
-        Order Now
-      </Button>
+
+      <Box sx={{ position: "relative", zIndex: 2 }}>
+        <Typography variant="h2" component="h1" sx={heroStyles.heading}>
+          Welcome to Hallabrujah Coffee!
+        </Typography>
+
+        <Typography variant="h6" component="p" sx={heroStyles.subHeading}>
+          Freshly brewed coffee, delivered to your door.
+        </Typography>
+
+        <Button variant="contained" sx={heroStyles.button}>
+          Order Now
+        </Button>
+      </Box>
     </Box>
   );
 };
