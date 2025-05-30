@@ -4,28 +4,52 @@ import {
   Typography,
   Stack,
   Container,
+  Box,
+  Link as MuiLink,
 } from "@mui/material";
-import { navStack, logoStyle } from "../../styles/navbar/navbar.styles";
+import { navWrapper, navLogo, navLinks, navRightLink } from "../../styles/navbar/navbar.styles";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <AppBar
       position="fixed"
-      color="transparent"
-      elevation={0}
-      sx={{ width: "100%" }}
+      elevation={1}
+      sx={{ backgroundColor: "#ffffff", color: "#000000" }}
     >
       <Toolbar disableGutters>
         <Container maxWidth="lg">
-          <Stack direction="row" spacing={4} sx={navStack}>
-            <Typography variant="h6" sx={logoStyle}>
-              <Link to="/"> BrewBuddy</Link>
-            </Typography>
-            <Link to="/menu">Menu</Link>
-            <Link to="/about">About</Link>
-            <Link to="/login">Login</Link>
-          </Stack>
+          <Box sx={navWrapper}>
+            {/* Left: Logo */}
+            <Box>
+              <Typography variant="h6" sx={navLogo}>
+                <Link to="/">BrewBuddy</Link>
+              </Typography>
+            </Box>
+
+            {/* Center: Navigation links */}
+            <Stack direction="row" spacing={4} sx={navLinks}>
+              <MuiLink component={Link} to="/menu" underline="none">
+                Menu
+              </MuiLink>
+              <MuiLink component={Link} to="/about" underline="none">
+                About
+              </MuiLink>
+              <MuiLink component={Link} to="/order" underline="none">
+                Order
+              </MuiLink>
+              <MuiLink component={Link} to="/rewards" underline="none">
+                Rewards
+              </MuiLink>
+            </Stack>
+
+            {/* Right: Login/Account */}
+            <Box sx={navRightLink}>
+              <MuiLink component={Link} to="/login" underline="none">
+                Login
+              </MuiLink>
+            </Box>
+          </Box>
         </Container>
       </Toolbar>
     </AppBar>
