@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Paper, Typography } from "@mui/material";
 import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +8,7 @@ import { useAuth } from "../../component/context/AuthContext";
 import axios from "axios";
 import { styles } from "../../styles/login/login.styles";
 
-const Login = () => {
+const Login: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -35,6 +36,10 @@ const Login = () => {
     <>
       <Navbar />
       <Box sx={styles.wrapper}>
+        {/* Left side image */}
+        <Box sx={styles.leftSide} />
+
+        {/* Right side login box */}
         <Box sx={styles.container}>
           <Paper elevation={0} sx={styles.card}>
             <Typography variant="h5" sx={styles.title}>
