@@ -8,7 +8,7 @@ import { useAuth } from "../../component/context/AuthContext";
 import axios from "axios";
 import { styles } from "../../styles/login/login.styles";
 
-const Login: React.FC = () => {
+const Login= () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
