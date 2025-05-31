@@ -1,28 +1,50 @@
 import { SxProps, Theme } from "@mui/material";
 
 export const reviewsContainer: SxProps<Theme> = {
-  py: 6,
+  py: 10,
   px: 2,
-  backgroundColor: "#f9f9f9",
+  backgroundColor: "#F6F7F9",
+  minHeight: "100vh",
 };
 
 export const reviewCard: SxProps<Theme> = {
-  p: 3,
-  height: "100%",
+  p: 4,
+  borderRadius: 4,
+  backgroundColor: "#fff",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
-  boxShadow: 3,
-  borderRadius: 2,
-  backgroundColor: "#fff",
+  alignItems: "center",
+  textAlign: "center",
+  boxShadow:
+    "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)",
+  transition: "transform 0.3s ease",
+  "&:hover": {
+    transform: "translateY(-8px)",
+    boxShadow:
+      "0 20px 25px -5px rgba(0,0,0,0.15), 0 10px 10px -5px rgba(0,0,0,0.1)",
+  },
+};
+
+export const avatarBox: SxProps<Theme> = {
+  mb: 3,
 };
 
 export const reviewerName: SxProps<Theme> = {
-  mt: 2,
-  fontWeight: 600,
+  fontWeight: 700,
+  mb: 1,
+  fontSize: "1.25rem",
 };
 
 export const reviewText: SxProps<Theme> = {
-  mt: 1,
-  color: "text.secondary",
+  fontStyle: "italic",
+  color: "#555",
+  fontSize: "1rem",
+  mb: 3,
+  maxWidth: 300,
+  margin: "0 auto",
+};
+
+export const starIcon: SxProps<Theme> = {
+  fontSize: 28,
+  color: "#FFD700", // Gold star color
 };
