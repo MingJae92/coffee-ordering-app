@@ -4,7 +4,7 @@ export const reviewsContainer: SxProps<Theme> = {
   py: 10,
   px: 2,
   backgroundColor: "#F6F7F9",
-  minHeight: "100vh",
+  // Removed minHeight so height grows naturally with content
 };
 
 export const reviewCard: SxProps<Theme> = {
