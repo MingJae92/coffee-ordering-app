@@ -4,6 +4,10 @@ import { heroStyles } from "../../styles/hero/hero.styles";
 const Hero = () => {
   return (
     <Box sx={heroStyles.container}>
+      {/* Overlay */}
+      <Box sx={heroStyles.overlay} />
+
+      {/* Content on top */}
       <Box sx={{ position: "relative", zIndex: 2 }}>
         <Typography variant="h2" component="h1" sx={heroStyles.heading}>
           Welcome to Hallabrujah Coffee!

@@ -20,12 +20,19 @@ export const heroStyles: Record<string, SxProps<Theme>> = {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
 
-    // THIS is the key:
-    backgroundAttachment: "local", // Fixes bg relative to container scroll
+    backgroundAttachment: "local",
+    zIndex: 1,
+  },
 
-    // Optional: if container scrolls internally
-    // overflow: "auto", 
-    // If you want a scrollable container limited in height, uncomment above.
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+
+    background:
+      "linear-gradient(to bottom, rgba(220, 220, 220, 0.4), rgba(200, 200, 200, 0.6))",
 
     zIndex: 1,
   },
