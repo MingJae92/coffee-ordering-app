@@ -4,11 +4,11 @@ export const heroStyles: Record<string, SxProps<Theme>> = {
   container: {
     height: "100vh",
     width: "100vw",
-    backgroundImage:
-      "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_0w0iq_uYDzYZwDS2xDf0VVa_tttl07RKfA&s')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
+    // backgroundImage:
+    //   "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_0w0iq_uYDzYZwDS2xDf0VVa_tttl07RKfA&s')",
+    // backgroundSize: "cover",
+    // backgroundPosition: "center",
+    // backgroundAttachment: "fixed",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -25,7 +25,7 @@ export const heroStyles: Record<string, SxProps<Theme>> = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    // backgroundColor: "rgba(0, 0, 0, 0.5)",
     zIndex: 1,
   },
   heading: {
@@ -42,7 +42,7 @@ export const heroStyles: Record<string, SxProps<Theme>> = {
     fontSize: { xs: "1rem", md: "1.2rem" },
     mb: 3,
     zIndex: 2,
-    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+    // textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
     lineHeight: 1.5,
     px: 2,
   },
