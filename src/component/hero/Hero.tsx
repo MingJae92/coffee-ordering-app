@@ -14,7 +14,11 @@ const Hero = () => {
         </Typography>
 
         <Typography variant="h6" component="p" sx={heroStyles.subHeading}>
-          Freshly brewed coffee, delivered to your door.
+         " Freshly brewed coffee before SOC Eng service starts!"
+        </Typography>
+
+        <Typography variant="h6" component="p" sx={heroStyles.subHeading}>
+          "Scent the coffee as you walk up service, the Lord is waiting upon your arrival!"
         </Typography>
       </Box>
     </Box>

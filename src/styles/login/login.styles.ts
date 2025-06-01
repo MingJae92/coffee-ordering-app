@@ -13,7 +13,7 @@ export const styles: Record<string, SxProps<Theme>> = {
     width: "60%",
     height: "600px", // Or adjust as needed for balance
     backgroundImage:
-      "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80')",
+      "url('https://images.unsplash.com/photo-1518481710357-695a502e225b?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",

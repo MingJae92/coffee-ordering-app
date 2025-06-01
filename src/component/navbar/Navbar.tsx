@@ -7,7 +7,12 @@ import {
   Box,
   Link as MuiLink,
 } from "@mui/material";
-import { navWrapper, navLogo, navLinks, navRightLink } from "../../styles/navbar/navbar.styles";
+import {
+  navWrapper,
+  navLogo,
+  navLinks,
+  navRightLink,
+} from "../../styles/navbar/navbar.styles";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -34,12 +39,6 @@ const Navbar = () => {
               </MuiLink>
               <MuiLink component={Link} to="/about" underline="none">
                 About
-              </MuiLink>
-              <MuiLink component={Link} to="/order" underline="none">
-                Order
-              </MuiLink>
-              <MuiLink component={Link} to="/rewards" underline="none">
-                Rewards
               </MuiLink>
             </Stack>
 
