@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Grid } from '@mui/material';
+import { Container } from '@mui/material';
 import {
   CoreValuesWrapper,
+  ValuesGrid,
   ValueCard,
   ValueTitle,
   ValueDesc,
-} from "../../styles/CoreValues/CoreValues.styles"
+} from '../../styles/CoreValues/CoreValues.styles';
 
 const values = [
   {
@@ -20,22 +21,24 @@ const values = [
     title: 'Community',
     desc: 'We connect people through the ritual and joy of great coffee, globally and locally.',
   },
+  {
+    title: 'Innovation',
+    desc: 'Constantly evolving to brew coffee experiences that surprise and delight.',
+  },
 ];
 
 const CoreValues = () => {
   return (
     <CoreValuesWrapper>
-      <Container maxWidth="xl">
-        <Grid container spacing={4}>
+      <Container maxWidth="md">
+        <ValuesGrid>
           {values.map((item) => (
-            <Grid item xs={12} md={4} key={item.title}>
-              <ValueCard>
-                <ValueTitle variant="h6">{item.title}</ValueTitle>
-                <ValueDesc variant="body2">{item.desc}</ValueDesc>
-              </ValueCard>
-            </Grid>
+            <ValueCard key={item.title}>
+              <ValueTitle variant="h6">{item.title}</ValueTitle>
+              <ValueDesc variant="body2">{item.desc}</ValueDesc>
+            </ValueCard>
           ))}
-        </Grid>
+        </ValuesGrid>
       </Container>
     </CoreValuesWrapper>
   );
