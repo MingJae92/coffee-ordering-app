@@ -1,19 +1,26 @@
 import React from 'react';
-import { Typography, Container } from '@mui/material';
-import { MissionWrapper, MissionText } from "../../styles/mission/mission.styles"
+import {
+  MissionWrapper,
+  Overlay,
+  MissionContent,
+  MissionHeading,
+  MissionText,
+} from '../../styles/mission/mission.styles';
 
 const Mission = () => {
   return (
     <MissionWrapper>
-      <Container maxWidth="md">
-        <Typography variant="h4" gutterBottom>
-          Our Mission
-        </Typography>
-        <MissionText variant="body1">
-          To brew exceptional coffee while supporting sustainability, fair trade, and warm
-          café communities across the globe.
+      <Overlay />
+      <MissionContent>
+        <MissionHeading component="h1" variant="h2" gutterBottom>
+          Our mission statement
+        </MissionHeading>
+        <MissionText variant="body1" paragraph>
+          At the heart of every cup is our commitment to quality, community, and craft. We aim to
+          create rich, soulful coffee experiences that bring people together — one sip, one story,
+          one connection at a time.
         </MissionText>
-      </Container>
+      </MissionContent>
     </MissionWrapper>
   );
 };

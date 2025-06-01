@@ -9,8 +9,8 @@ const Aboutpage = () => {
     <>
       <Navbar />
       <BrandStory />
-      {/* <Mission />
-      <CoreValues /> */}
+      <Mission />
+      {/* <CoreValues /> */}
       <Footer />
     </>
   );
