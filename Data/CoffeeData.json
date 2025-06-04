@@ -1,0 +1,30 @@
+
+  {
+    "id": 1,
+    "name": "Espresso",
+    "price": "$3.50",
+    "description": "Strong and bold espresso shot.",
+    "image": "https://source.unsplash.com/400x400/?espresso"
+  },
+  {
+    "id": 2,
+    "name": "Cappuccino",
+    "price": "$4.00",
+    "description": "Espresso with steamed milk and foam.",
+    "image": "https://source.unsplash.com/400x400/?cappuccino"
+  },
+  {
+    "id": 3,
+    "name": "Latte",
+    "price": "$4.50",
+    "description": "Smooth latte with a hint of sweetness.",
+    "image": "https://source.unsplash.com/400x400/?latte"
+  },
+  {
+    "id": 4,
+    "name": "Iced Coffee",
+    "price": "$4.00",
+    "description": "Chilled and refreshing.",
+    "image": "https://source.unsplash.com/400x400/?iced-coffee"
+  }
+]
