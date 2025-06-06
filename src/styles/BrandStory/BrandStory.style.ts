@@ -18,7 +18,7 @@ export const BrandStoryWrapper = styled(Box)(({ theme }) => ({
   color: '#fff',
 }));
 
-export const Overlay = styled(Box)(({ theme }) => ({
+export const Overlay = styled(Box)(({ }) => ({
   position: 'absolute',
   top: 0,
   left: 0,

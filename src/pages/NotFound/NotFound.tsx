@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Box, Typography, Container } from "@mui/material";
 import Navbar from "../../component/navbar/Navbar";
 import Footer from "../../component/footer/Footer";

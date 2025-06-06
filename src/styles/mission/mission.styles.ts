@@ -19,7 +19,7 @@ export const MissionWrapper = styled(Box)(({ theme }) => ({
 }));
 
 // Overlay to darken background for better text readability
-export const Overlay = styled(Box)(({ theme }) => ({
+export const Overlay = styled(Box)(() => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -30,7 +30,7 @@ export const Overlay = styled(Box)(({ theme }) => ({
 }));
 
 // Content container to be above overlay
-export const MissionContent = styled(Box)(({ theme }) => ({
+export const MissionContent = styled(Box)(() => ({
   position: 'relative',
   zIndex: 2,
   maxWidth: 700,

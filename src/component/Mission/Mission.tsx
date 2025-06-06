@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {
   MissionWrapper,
   Overlay,
@@ -12,7 +12,7 @@ const Mission = () => {
     <MissionWrapper>
       <Overlay />
       <MissionContent>
-        <MissionHeading component="h1" variant="h2" gutterBottom>
+        <MissionHeading variant="h2" gutterBottom>
           Our mission statement
         </MissionHeading>
         <MissionText variant="body1" paragraph>

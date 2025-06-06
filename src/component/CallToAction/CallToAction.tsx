@@ -1,12 +1,11 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import {
   outerWrapperStyle,
   backgroundImageStyle,
   overlayContentStyle,
   headingStyle,
   descriptionStyle,
-  buttonContainedStyle,
-  buttonOutlinedStyle,
+ 
 } from "../../styles/CallToAction/CallToAction.styles";
 
 const CallToAction = () => {

@@ -1,7 +1,5 @@
-import React from "react";
 import {
   Box,
-  Grid,
   Typography,
   Card,
   CardContent,
@@ -40,9 +38,17 @@ const Reviews = () => {
         What our newcomers say
       </Typography>
 
-      <Grid container spacing={4} justifyContent="center">
+      <Box
+        display="grid"
+        gridTemplateColumns={{
+          xs: "1fr",
+          sm: "1fr 1fr",
+          md: "1fr 1fr 1fr",
+        }}
+        gap={4}
+      >
         {reviews.map((review: Review) => (
-          <Grid item xs={12} sm={6} md={4} key={review.id}>
+          <Box key={review.id}>
             <Card sx={reviewCard}>
               <CardContent>
                 <FormatQuoteIcon sx={quoteIcon} />
@@ -73,9 +79,9 @@ const Reviews = () => {
                 </Box>
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 };
