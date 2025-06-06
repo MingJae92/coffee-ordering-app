@@ -19,7 +19,7 @@ const CallToAction = () => {
         </Typography>
         <Typography>Service starting soon!</Typography>
         <Typography sx={descriptionStyle}>
-         "Prepare you hearts before the Lord as we worship and praise the Lord!"
+         "Prepare you hearts before the Lord as we worship and praise the Lord!!!"
         </Typography>
         <Box
           sx={{
