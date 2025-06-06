@@ -6,6 +6,7 @@ import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from "./component/ProtectedRoutes/ProtectedRoutes";
 import { AuthProvider } from "./component/context/AuthContext";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound/>}/>
 
         <Route
           path="/dashboard"

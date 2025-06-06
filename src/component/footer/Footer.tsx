@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Box sx={footerStyle}>
       <Typography variant="body1" sx={footerTextStyle}>
-        &copy; 2025 BrewBuddy. All rights reserved.
+        &copy; 2025 Hallabrujah, All rights reserved.
       </Typography>
     </Box>
   );
