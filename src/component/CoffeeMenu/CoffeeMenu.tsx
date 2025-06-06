@@ -26,10 +26,9 @@ const CoffeeMenu = () => {
     const fetchCoffeeData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          "https://api.sampleapis.com/coffee/hot"
-        );
+        const response = await axios.get("https://api.sampleapis.com/coffee/hot");
 
+        // Filter unique images
         const uniqueImages = response.data.filter(
           (item: CoffeeTypes, index: number, self: CoffeeTypes[]) =>
             index === self.findIndex((t) => t.image === item.image)
@@ -47,42 +46,78 @@ const CoffeeMenu = () => {
     fetchCoffeeData();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Failed to fetch coffee data.</div>;
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        Loading...
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          color: "red",
+        }}
+      >
+        Failed to fetch coffee data.
+      </Box>
+    );
+  }
 
   return (
-    <Box sx={{ width: "100vw", height: "100vh", overflow: "hidden" }}>
+    <Box sx={{ width: "100%", minHeight: "100vh", pb: 8 }}>
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 25vw)",
-          gridTemplateRows: "repeat(7, 14.2857vh)",
+          gridTemplateColumns: {
+            xs: "repeat(1, 1fr)",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(4, 1fr)",
+          },
+          gap: 2,
           width: "100%",
-          height: "100%",
         }}
       >
-        {coffeeData.map((item) => (
-          <Card
-            key={item.id}
-            sx={{
-              width: "100%",
-              height: "100%",
-              borderRadius: 0,
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              setCurrentCoffee(item);
-              setModalOpen(true);
-            }}
-          >
-            <CardMedia
-              component="img"
-              image={item.image}
-              alt={item.title}
-              sx={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </Card>
-        ))}
+        {coffeeData.map(
+          (item) =>
+            item.image && (
+              <Card
+                key={item.id}
+                sx={{
+                  width: "100%",
+                  aspectRatio: "1 / 1",
+                  borderRadius: 0,
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  setCurrentCoffee(item);
+                  setModalOpen(true);
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={item.image}
+                  alt={item.title || "Coffee image"}
+                  sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </Card>
+            )
+        )}
       </Box>
 
       <Dialog
@@ -90,6 +125,7 @@ const CoffeeMenu = () => {
         onClose={() => setModalOpen(false)}
         maxWidth="md"
         fullWidth
+        scroll="paper"
       >
         <DialogContent
           sx={{
@@ -117,35 +153,43 @@ const CoffeeMenu = () => {
             <CloseIcon />
           </IconButton>
 
-          <img
-            src={currentCoffee?.image}
-            alt={currentCoffee?.title}
-            style={{
-              width: "100%",
-              maxHeight: "60vh",
-              objectFit: "contain",
-              backgroundColor: "#111",
-            }}
-          />
-
-          <CardContent sx={{ width: "100%", backgroundColor: "#111", p: 3 }}>
-            <Typography variant="h5" gutterBottom>
-              {currentCoffee?.title}
-            </Typography>
-            <Typography variant="body2" gutterBottom>
-              {currentCoffee?.description}
-            </Typography>
-
-            <Stack direction="row" spacing={1} flexWrap="wrap" mt={2}>
-              {currentCoffee?.ingredients.map((ingredient, index) => (
-                <Chip
-                  key={index}
-                  label={ingredient}
-                  sx={{ backgroundColor: "#333", color: "#fff" }}
+          {currentCoffee && (
+            <>
+              {currentCoffee.image && (
+                <img
+                  src={currentCoffee.image}
+                  alt={currentCoffee.title || "Coffee image"}
+                  style={{
+                    width: "100%",
+                    maxHeight: "60vh",
+                    objectFit: "contain",
+                    backgroundColor: "#111",
+                  }}
                 />
-              ))}
-            </Stack>
-          </CardContent>
+              )}
+
+              <CardContent sx={{ width: "100%", backgroundColor: "#111", p: 3 }}>
+                <Typography variant="h5" gutterBottom>
+                  {currentCoffee.title}
+                </Typography>
+                <Typography variant="body2" gutterBottom>
+                  {currentCoffee.description}
+                </Typography>
+
+                {currentCoffee.ingredients && currentCoffee.ingredients.length > 0 && (
+                  <Stack direction="row" spacing={1} flexWrap="wrap" mt={2}>
+                    {currentCoffee.ingredients.map((ingredient, index) => (
+                      <Chip
+                        key={index}
+                        label={ingredient}
+                        sx={{ backgroundColor: "#333", color: "#fff" }}
+                      />
+                    ))}
+                  </Stack>
+                )}
+              </CardContent>
+            </>
+          )}
         </DialogContent>
       </Dialog>
     </Box>
