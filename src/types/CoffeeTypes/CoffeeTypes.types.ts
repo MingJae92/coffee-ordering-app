@@ -1,7 +1,7 @@
 export interface CoffeeTypes {
-    title:string;
-    description:string;
-    ingredients:string[];
-    image:string;
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  ingredients: string[];
 }
-
