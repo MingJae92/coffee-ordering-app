@@ -16,9 +16,10 @@ function Menu() {
       
       <Typography sx={{ p: 2 }}>Menu</Typography>
 
-      <Box sx={{ flexGrow: 1 }}>
+      {/* <Box sx={{ flexGrow: 1 }}>
+      
+      </Box> */}
         <CoffeeMenu />
-      </Box>
 
       <Footer />
     </Box>

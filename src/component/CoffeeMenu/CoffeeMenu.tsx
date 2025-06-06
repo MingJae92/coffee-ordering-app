@@ -26,7 +26,9 @@ const CoffeeMenu = () => {
     const fetchCoffeeData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("https://api.sampleapis.com/coffee/hot");
+        const response = await axios.get(
+          "https://api.sampleapis.com/coffee/hot"
+        );
 
         // Filter unique images
         const uniqueImages = response.data.filter(
@@ -168,7 +170,9 @@ const CoffeeMenu = () => {
                 />
               )}
 
-              <CardContent sx={{ width: "100%", backgroundColor: "#111", p: 3 }}>
+              <CardContent
+                sx={{ width: "100%", backgroundColor: "#111", p: 3 }}
+              >
                 <Typography variant="h5" gutterBottom>
                   {currentCoffee.title}
                 </Typography>
@@ -176,16 +180,10 @@ const CoffeeMenu = () => {
                   {currentCoffee.description}
                 </Typography>
 
-                {currentCoffee.ingredients && currentCoffee.ingredients.length > 0 && (
-                  <Stack direction="row" spacing={1} flexWrap="wrap" mt={2}>
-                    {currentCoffee.ingredients.map((ingredient, index) => (
-                      <Chip
-                        key={index}
-                        label={ingredient}
-                        sx={{ backgroundColor: "#333", color: "#fff" }}
-                      />
-                    ))}
-                  </Stack>
+                {currentCoffee.ingredients && (
+                  <div style={{ marginTop: 16 }}>
+                    {Object.values(currentCoffee.ingredients)}
+                  </div>
                 )}
               </CardContent>
             </>
