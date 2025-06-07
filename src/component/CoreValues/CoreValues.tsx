@@ -6,7 +6,7 @@ import {
   ValueCard,
   ValueTitle,
   ValueDesc,
-} from '../../styles/CoreValues/CoreValues.styles.ts';
+} from '../../styles/CoreValues/CoreValues.styles';
 
 const values = [
   {
