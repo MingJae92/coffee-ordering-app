@@ -18,17 +18,10 @@ function Menu() {
       <MenuHero />
 
       <Box sx={{ my: 4 }}>
-        <Searchbar
-          value={""}
-          onChange={(newValue: string) => {
-            console.log(newValue);
-          }}
-        />
+       
       </Box>
 
-      
-        <CoffeeMenu />
-
+      <CoffeeMenu />
 
       <Footer />
     </Box>
