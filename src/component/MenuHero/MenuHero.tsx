@@ -10,7 +10,7 @@ const MenuHero = () => {
       {/* Content on top */}
       <Box sx={{ position: "relative", zIndex: 2 }}>
         <Typography variant="h2" component="h1" sx={MenuHeroStyles.heading}>
-         Hallabrujah Coffee Menu!
+         Coffee and CODE! Coffee Menu!
         </Typography>
       </Box>
     </Box>

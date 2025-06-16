@@ -10,7 +10,7 @@ const Hero = () => {
       {/* Content on top */}
       <Box sx={{ position: "relative", zIndex: 2 }}>
         <Typography variant="h2" component="h1" sx={heroStyles.heading}>
-          Welcome to Hallabrujah Coffee!
+          Welcome to Coffee and CODE! Coffee!
         </Typography>
 
         <Typography variant="h6" component="p" sx={heroStyles.subHeading}>

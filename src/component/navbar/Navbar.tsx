@@ -28,7 +28,7 @@ const Navbar = () => {
             {/* Left: Logo */}
             <Box>
               <Typography variant="h6" sx={navLogo}>
-                <Link to="/">Hallabrujah!!!</Link>
+                <Link to="/">Coffee and CODE! </Link>
               </Typography>
             </Box>
 
