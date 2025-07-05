@@ -3,6 +3,7 @@ import { useCoffee } from "../CoffeeContext/CoffeeContext";
 import { useState } from "react";
 import CoffeeModal from "../CoffeeModal/CoffeeModal";
 import { CoffeeTypes } from "../../types/CoffeeTypes/CoffeeTypes.types";
+import Searchbar from "../Searchbar/Searchbar";
 
 const CoffeeMenu = () => {
   const { loading, error, coffeeData, selected, setSelected } = useCoffee();
@@ -44,6 +45,7 @@ const CoffeeMenu = () => {
 
   return (
     <Box sx={{ width: "100%", minHeight: "100vh", pb: 8 }}>
+      <Searchbar/>
       <div
         style={{
           display: "grid",

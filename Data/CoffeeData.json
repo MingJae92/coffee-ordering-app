@@ -2,29 +2,351 @@
   {
     "id": 1,
     "name": "Espresso",
-    "price": "$3.50",
-    "description": "Strong and bold espresso shot.",
-    "image": "https://source.unsplash.com/400x400/?espresso"
+    "description": "Strong and bold single shot of espresso.",
+    "price": 2.50,
+    "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348"
   },
   {
     "id": 2,
-    "name": "Cappuccino",
-    "price": "$4.00",
-    "description": "Espresso with steamed milk and foam.",
-    "image": "https://source.unsplash.com/400x400/?cappuccino"
+    "name": "Double Espresso",
+    "description": "Twice the caffeine kick, double the boldness.",
+    "price": 3.00,
+    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772"
   },
   {
     "id": 3,
-    "name": "Latte",
-    "price": "$4.50",
-    "description": "Smooth latte with a hint of sweetness.",
-    "image": "https://source.unsplash.com/400x400/?latte"
+    "name": "Americano",
+    "description": "Espresso diluted with hot water for a smooth finish.",
+    "price": 2.80,
+    "image": "https://images.unsplash.com/photo-1528756514091-dee5ecaa3278"
   },
   {
     "id": 4,
+    "name": "Latte",
+    "description": "Smooth blend of espresso and steamed milk.",
+    "price": 3.50,
+    "image": "https://images.unsplash.com/photo-1589187155479-1a5b80e60b6e"
+  },
+  {
+    "id": 5,
+    "name": "Cappuccino",
+    "description": "Rich espresso topped with foamed milk.",
+    "price": 3.30,
+    "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5"
+  },
+  {
+    "id": 6,
+    "name": "Flat White",
+    "description": "Silky microfoam and a strong espresso base.",
+    "price": 3.60,
+    "image": "https://images.unsplash.com/photo-1573166364524-cb89e39749b4"
+  },
+  {
+    "id": 7,
+    "name": "Macchiato",
+    "description": "Espresso marked with a dollop of milk foam.",
+    "price": 2.90,
+    "image": "https://images.unsplash.com/photo-1623840766768-39a4c9b1cb68"
+  },
+  {
+    "id": 8,
+    "name": "Mocha",
+    "description": "Espresso with chocolate and steamed milk.",
+    "price": 3.80,
+    "image": "https://images.unsplash.com/photo-1606813904948-79226b3f0b44"
+  },
+  {
+    "id": 9,
+    "name": "Cortado",
+    "description": "Equal parts espresso and warm milk.",
+    "price": 3.00,
+    "image": "https://images.unsplash.com/photo-1536520002442-39764a41eab1"
+  },
+  {
+    "id": 10,
+    "name": "Cold Brew",
+    "description": "Chilled, slow-steeped coffee served over ice.",
+    "price": 3.90,
+    "image": "https://images.unsplash.com/photo-1603721721570-9104f6a1c66f"
+  },
+  {
+    "id": 11,
+    "name": "Iced Latte",
+    "description": "Cold espresso with milk over ice.",
+    "price": 3.70,
+    "image": "https://images.unsplash.com/photo-1605477339147-dfe7d68f19d5"
+  },
+  {
+    "id": 12,
+    "name": "Iced Americano",
+    "description": "Espresso diluted with cold water and ice.",
+    "price": 3.20,
+    "image": "https://images.unsplash.com/photo-1613470208967-5e0a7f8b31a9"
+  },
+  {
+    "id": 13,
+    "name": "Affogato",
+    "description": "Vanilla ice cream drowned in hot espresso.",
+    "price": 4.20,
+    "image": "https://images.unsplash.com/photo-1570865451304-8b5f6ac3ed0f"
+  },
+  {
+    "id": 14,
+    "name": "Nitro Cold Brew",
+    "description": "Cold brew infused with nitrogen for a creamy texture.",
+    "price": 4.50,
+    "image": "https://images.unsplash.com/photo-1611955746253-858b670e662e"
+  },
+  {
+    "id": 15,
+    "name": "Turkish Coffee",
+    "description": "Unfiltered, rich coffee brewed in a cezve.",
+    "price": 3.10,
+    "image": "https://images.unsplash.com/photo-1610145313500-7280e1dd52d9"
+  },
+  {
+    "id": 16,
+    "name": "Irish Coffee",
+    "description": "Coffee with whiskey, sugar, and cream.",
+    "price": 4.80,
+    "image": "https://images.unsplash.com/photo-1590608897129-79da98d15984"
+  },
+  {
+    "id": 17,
+    "name": "Vienna Coffee",
+    "description": "Espresso topped with whipped cream.",
+    "price": 4.00,
+    "image": "https://images.unsplash.com/photo-1605478541852-c6fba0373c44"
+  },
+  {
+    "id": 18,
+    "name": "Chai Latte",
+    "description": "Spiced tea blended with steamed milk.",
+    "price": 3.40,
+    "image": "https://images.unsplash.com/photo-1607011404586-45a1b3bb8a53"
+  },
+  {
+    "id": 19,
+    "name": "Matcha Latte",
+    "description": "Earthy matcha green tea with steamed milk.",
+    "price": 3.90,
+    "image": "https://images.unsplash.com/photo-1618203891230-74d94eab5efc"
+  },
+  {
+    "id": 20,
+    "name": "Decaf Coffee",
+    "description": "All the flavor, none of the buzz.",
+    "price": 2.80,
+    "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6"
+  },
+  {
+    "id": 21,
+    "name": "Ristretto",
+    "description": "A short, concentrated shot of espresso.",
+    "price": 2.70,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 22,
+    "name": "Lungo",
+    "description": "A longer espresso shot, less concentrated.",
+    "price": 2.90,
+    "image": "https://images.unsplash.com/photo-1522177547302-379a91346d1f"
+  },
+  {
+    "id": 23,
+    "name": "Doppio",
+    "description": "Double shot of espresso.",
+    "price": 3.20,
+    "image": "https://images.unsplash.com/photo-1546094367-2bc3d310d716"
+  },
+  {
+    "id": 24,
+    "name": "Café au Lait",
+    "description": "Brewed coffee with steamed milk.",
+    "price": 3.30,
+    "image": "https://images.unsplash.com/photo-1517686469429-5edb150ee560"
+  },
+  {
+    "id": 25,
+    "name": "Café Mocha",
+    "description": "Espresso combined with hot chocolate and steamed milk.",
+    "price": 3.90,
+    "image": "https://images.unsplash.com/photo-1556910103-1d6e9fbd8b87"
+  },
+  {
+    "id": 26,
+    "name": "Vienna",
+    "description": "Two shots of espresso topped with whipped cream.",
+    "price": 4.10,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 27,
+    "name": "Red Eye",
+    "description": "Brewed coffee with a shot of espresso.",
+    "price": 3.00,
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+  },
+  {
+    "id": 28,
+    "name": "Black Eye",
+    "description": "Brewed coffee with two shots of espresso.",
+    "price": 3.50,
+    "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348"
+  },
+  {
+    "id": 29,
+    "name": "Cafe Bombon",
+    "description": "Espresso mixed with sweetened condensed milk.",
+    "price": 3.20,
+    "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187"
+  },
+  {
+    "id": 30,
+    "name": "Mazagran",
+    "description": "Cold coffee drink with lemon juice.",
+    "price": 3.50,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 31,
     "name": "Iced Coffee",
-    "price": "$4.00",
-    "description": "Chilled and refreshing.",
-    "image": "https://source.unsplash.com/400x400/?iced-coffee"
+    "description": "Regular coffee served chilled over ice.",
+    "price": 3.20,
+    "image": "https://images.unsplash.com/photo-1522199710521-72d69614c702"
+  },
+  {
+    "id": 32,
+    "name": "Café de Olla",
+    "description": "Traditional Mexican coffee with cinnamon and piloncillo.",
+    "price": 3.80,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 33,
+    "name": "Espresso Con Panna",
+    "description": "Espresso topped with whipped cream.",
+    "price": 3.00,
+    "image": "https://images.unsplash.com/photo-1541647376581-9f6b3a8c5a1f"
+  },
+  {
+    "id": 34,
+    "name": "Bicerin",
+    "description": "Layered espresso, drinking chocolate and whole milk.",
+    "price": 4.00,
+    "image": "https://images.unsplash.com/photo-1541647376581-9f6b3a8c5a1f"
+  },
+  {
+    "id": 35,
+    "name": "Café Zorro",
+    "description": "Double espresso with hot water, stronger than americano.",
+    "price": 3.20,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 36,
+    "name": "Café Touba",
+    "description": "Senegalese coffee with pepper and cloves.",
+    "price": 3.50,
+    "image": "https://images.unsplash.com/photo-1522199710521-72d69614c702"
+  },
+  {
+    "id": 37,
+    "name": "Mazagran",
+    "description": "Sweetened iced coffee with lemon.",
+    "price": 3.40,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 38,
+    "name": "Café Bombón",
+    "description": "Equal parts espresso and sweetened condensed milk.",
+    "price": 3.30,
+    "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187"
+  },
+  {
+    "id": 39,
+    "name": "Cafe Cubano",
+    "description": "Espresso with sugar added during brewing.",
+    "price": 3.00,
+    "image": "https://images.unsplash.com/photo-1541647376581-9f6b3a8c5a1f"
+  },
+  {
+    "id": 40,
+    "name": "Café con Leche",
+    "description": "Strong coffee with scalded milk.",
+    "price": 3.20,
+    "image": "https://images.unsplash.com/photo-1522199710521-72d69614c702"
+  },
+  {
+    "id": 41,
+    "name": "Dalgona Coffee",
+    "description": "Whipped, frothy iced coffee drink.",
+    "price": 3.80,
+    "image": "https://images.unsplash.com/photo-1606788075769-4c964cc2cc5e"
+  },
+  {
+    "id": 42,
+    "name": "Dirty Coffee",
+    "description": "Cold milk 'dirtied' with a shot of espresso.",
+    "price": 3.60,
+    "image": "https://images.unsplash.com/photo-1618203891230-74d94eab5efc"
+  },
+  {
+    "id": 43,
+    "name": "Egg Coffee",
+    "description": "Vietnamese coffee with egg yolk and condensed milk.",
+    "price": 4.00,
+    "image": "https://images.unsplash.com/photo-1607011404586-45a1b3bb8a53"
+  },
+  {
+    "id": 44,
+    "name": "Espresso Romano",
+    "description": "Espresso served with a slice of lemon.",
+    "price": 3.00,
+    "image": "https://images.unsplash.com/photo-1546094367-2bc3d310d716"
+  },
+  {
+    "id": 45,
+    "name": "Galao",
+    "description": "Portuguese coffee with foamed milk.",
+    "price": 3.30,
+    "image": "https://images.unsplash.com/photo-1605477339147-dfe7d68f19d5"
+  },
+  {
+    "id": 46,
+    "name": "Long Black",
+    "description": "Hot water poured over espresso.",
+    "price": 2.80,
+    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772"
+  },
+  {
+    "id": 47,
+    "name": "Mazagran",
+    "description": "Iced coffee drink with lemon juice.",
+    "price": 3.20,
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  {
+    "id": 48,
+    "name": "Piccolo Latte",
+    "description": "Small latte with ristretto shot.",
+    "price": 3.40,
+    "image": "https://images.unsplash.com/photo-1573166364524-cb89e39749b4"
+  },
+  {
+    "id": 49,
+    "name": "Red Eye",
+    "description": "Brewed coffee with a shot of espresso.",
+    "price": 3.00,
+    "image": "https://images.unsplash.com/photo-1522199710521-72d69614c702"
+  },
+  {
+    "id": 50,
+    "name": "Raf Coffee",
+    "description": "Espresso with cream and vanilla sugar, popular in Russia.",
+    "price": 4.20,
+    "image": "https://images.unsplash.com/photo-1606788075769-4c964cc2cc5e"
   }
 ]

@@ -1,5 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../../component/context/AuthContext";
+import Sidebar from "../../component/Sidebar/Sidebar";
 
 function Dashboard() {
   const { user, logout } = useAuth();
@@ -19,6 +20,7 @@ if (!user) {
       <p>Welcome {user.name}</p>
       <p>{user.email}</p>
       <button onClick={handleLogout}>Logout</button>
+      <Sidebar/>
 
       {/* <button onClick={handleLogout}>logout</button> */}
     </div>
