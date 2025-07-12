@@ -1,47 +1,75 @@
-import React from 'react';
-import { List, ListItemText } from '@mui/material';
+import React, { useState } from "react";
+import { Box } from "@mui/material";
 import {
-  ReceiptLong as OrdersIcon,
-  MenuBook as MenuIcon,
-  People as CustomersIcon,
-  RateReview as ReviewsIcon,
-  CardGiftcard,
-  Favorite,
-  HelpOutline,
-  LocalCafe,
-  Person,
-  ShoppingCart,
-} from '@mui/icons-material';
-
+  FaCoffee,
+  FaChartLine,
+  FaUser,
+  FaShoppingCart,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import {
   StyledDrawer,
   SidebarHeader,
+  StyledList,
   StyledListItem,
   StyledListItemIcon,
-} from '../../styles/SideBar/SideBar.styles';
+  ActiveListItem,
+  drawerWidth,
+} from "../../styles/SideBar/SideBar.styles";
 
-const Sidebar = () => {
-  const menuItems = [
-     { text: 'Order Coffee', icon: <LocalCafe /> },
-    { text: 'My Orders', icon: <ShoppingCart /> },
-    { text: 'Favorites', icon: <Favorite /> },
-    { text: 'Account', icon: <Person /> },
-    { text: 'Rewards', icon: <CardGiftcard /> },
-    { text: 'Help', icon: <HelpOutline /> },
+const Sidebar: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  const links = [
+    { icon: <FaCoffee />, label: "Dashboard" },
+    { icon: <FaShoppingCart />, label: "Orders" },
+    { icon: <FaChartLine />, label: "Analytics" },
+    { icon: <FaUser />, label: "Customers" },
+    { icon: <FaCog />, label: "Settings" },
   ];
 
   return (
-    <StyledDrawer variant="permanent" anchor="left">
-      <SidebarHeader>My App</SidebarHeader>
-      <List>
-        {menuItems.map(({ text, icon }, index) => (
-          <StyledListItem  key={index}>
-            <StyledListItemIcon>{icon}</StyledListItemIcon>
-            <ListItemText primary={text} />
-          </StyledListItem>
-        ))}
-      </List>
+    <StyledDrawer
+      variant="permanent"
+      anchor="left"
+      open
+      sx={{ width: drawerWidth }}
+    >
+      <SidebarHeader>☕</SidebarHeader>
+
+      <StyledList>
+        {links.map((item, idx) =>
+          idx === activeIndex ? (
+            <ActiveListItem
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              aria-label={item.label}
+            >
+              <StyledListItemIcon>{item.icon}</StyledListItemIcon>
+            </ActiveListItem>
+          ) : (
+            <StyledListItem
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              aria-label={item.label}
+            >
+              <StyledListItemIcon>{item.icon}</StyledListItemIcon>
+            </StyledListItem>
+          )
+        )}
+      </StyledList>
+
+      <Box>
+        <StyledListItem
+          onClick={() => alert("Logout clicked")}
+          aria-label="Logout"
+        >
+          <StyledListItemIcon>
+            <FaSignOutAlt />
+          </StyledListItemIcon>
+        </StyledListItem>
+      </Box>
     </StyledDrawer>
   );
 };
