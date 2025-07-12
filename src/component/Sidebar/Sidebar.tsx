@@ -60,16 +60,7 @@ const Sidebar: React.FC = () => {
         )}
       </StyledList>
 
-      <Box>
-        <StyledListItem
-          onClick={() => alert("Logout clicked")}
-          aria-label="Logout"
-        >
-          <StyledListItemIcon>
-            <FaSignOutAlt />
-          </StyledListItemIcon>
-        </StyledListItem>
-      </Box>
+      
     </StyledDrawer>
   );
 };
