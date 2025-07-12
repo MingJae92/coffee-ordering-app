@@ -1,4 +1,3 @@
-
 import { Box, Paper, Typography } from "@mui/material";
 import { GoogleLogin, CredentialResponse } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
@@ -8,25 +7,28 @@ import { useAuth } from "../../component/context/AuthContext";
 import axios from "axios";
 import { styles } from "../../styles/login/login.styles";
 
-const Login= () => {
+const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSuccess = async (credentialResponse: CredentialResponse) => {
-    const token = credentialResponse.credential;
-    if (!token) return;
+  const token = credentialResponse.credential;
+  if (!token) return;
 
-    try {
-      const response = await axios.post("http://localhost:7128/api/auth", { token });
-      const user = response.data.user;
-      if (user) {
-        login(user);
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      console.error("Login failed", error);
+  try {
+    const response = await axios.post("http://localhost:7128/api/auth", { token });
+    const user = response.data.user;
+
+    if (user) {
+      login(user); // store user in context
+      console.log("✅ User successfully logged in:", user); // <-- log here
+      navigate("/dashboard");
     }
-  };
+  } catch (error) {
+    console.error("Login failed", error);
+  }
+};
+
 
   const handleError = () => {
     console.error("Login Failed");

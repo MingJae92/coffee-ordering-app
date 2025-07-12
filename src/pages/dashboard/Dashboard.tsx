@@ -1,59 +1,24 @@
-import { Navigate, useNavigate } from "react-router-dom";
-import { useAuth } from "../../component/context/AuthContext";
-import Sidebar from "../../component/Sidebar/Sidebar";
-import { Box, Typography, Button } from "@mui/material";
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../../component/context/AuthContext';
+import Sidebar from '../../component/Sidebar/Sidebar';
+import { Box } from '@mui/material';
+import DashboardHeader from '../../component/DashboardHeader/DashboardHeader';
 
 function Dashboard() {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  const { user } = useAuth();
 
   if (!user) {
     return <Navigate to="/login" replace />;
   }
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
-
   return (
-    <Box sx={{ display: "flex", minHeight: "100vh" }}>
-      {/* Sidebar on the left */}
+    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
       <Sidebar />
+      <DashboardHeader />
 
-      {/* Main content */}
-      <Box sx={{ flexGrow: 1, p: 3 }}>
-        {/* Other dashboard components/content here */}
-      </Box>
-
-      {/* Absolute top-right user info */}
-      <Box
-        sx={{
-          position: "fixed", // Fix to viewport
-          top: 16,
-          right: 16,
-          zIndex: 1300, // Higher than most content
-          textAlign: "right",
-          backgroundColor: "background.paper",
-          boxShadow: 3,
-          p: 2,
-          borderRadius: 2,
-        }}
-      >
+      {/* Main dashboard content */}
+      <Box sx={{ mt: 8, p: 3, width: '100%' }}>
        
-        <Typography variant="body1">Welcome {user.name}</Typography>
-        <Typography variant="body2" color="text.secondary">
-          {user.email}
-        </Typography>
-        <Button
-          variant="outlined"
-          color="error"
-          size="small"
-          onClick={handleLogout}
-          sx={{ mt: 1 }}
-        >
-          Logout
-        </Button>
       </Box>
     </Box>
   );

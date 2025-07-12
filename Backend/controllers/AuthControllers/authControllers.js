@@ -29,9 +29,11 @@ const authController = async (req, res) => {
       id: payload.sub,
       name: payload.name,
       email: payload.email,
+      avatarUrl: payload.picture,  // <-- Added avatar URL here
     };
-    const { email, name, id } = user;
-    console.log("✅ Token successfully verified for:", { email, name, id }); 
+
+    const { email, name, id, avatarUrl } = user;
+    console.log("✅ Token successfully verified for:", { email, name, id, avatarUrl });
 
     return res.status(200).json({ user });
   } catch (error) {
