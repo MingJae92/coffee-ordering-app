@@ -59,8 +59,6 @@ const Sidebar: React.FC = () => {
           )
         )}
       </StyledList>
-
-      
     </StyledDrawer>
   );
 };

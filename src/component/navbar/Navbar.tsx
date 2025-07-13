@@ -34,7 +34,7 @@ const Navbar = () => {
 
             {/* Center: Navigation links */}
             <Stack direction="row" spacing={4} sx={navLinks}>
-              <MuiLink component={Link} to="/menu" underline="none">
+              <MuiLink component={Link} to="/menu" underline="none" >
                 Menu
               </MuiLink>
               <MuiLink component={Link} to="/about" underline="none">

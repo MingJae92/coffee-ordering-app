@@ -12,23 +12,24 @@ const Login = () => {
   const { login } = useAuth();
 
   const handleSuccess = async (credentialResponse: CredentialResponse) => {
-  const token = credentialResponse.credential;
-  if (!token) return;
+    const token = credentialResponse.credential;
+    if (!token) return;
 
-  try {
-    const response = await axios.post("http://localhost:7128/api/auth", { token });
-    const user = response.data.user;
+    try {
+      const response = await axios.post("http://localhost:7128/api/auth", {
+        token,
+      });
+      const user = response.data.user;
 
-    if (user) {
-      login(user); // store user in context
-      console.log("✅ User successfully logged in:", user); // <-- log here
-      navigate("/dashboard");
+      if (user) {
+        login(user); // store user in context
+        console.log("✅ User successfully logged in:", user); // <-- log here
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      console.error("Login failed", error);
     }
-  } catch (error) {
-    console.error("Login failed", error);
-  }
-};
-
+  };
 
   const handleError = () => {
     console.error("Login Failed");
@@ -47,11 +48,15 @@ const Login = () => {
             <Typography variant="h5" sx={styles.title}>
               Welcome Back 👋
             </Typography>
-            <Typography sx={styles.subtitle}>Sign in to your account</Typography>
+            <Typography sx={styles.subtitle}>
+              Sign in to your account
+            </Typography>
             <Box sx={styles.loginBtnContainer}>
               <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
             </Box>
-            <Typography sx={styles.note}>Use your Google account to sign in</Typography>
+            <Typography sx={styles.note}>
+              Use your Google account to sign in
+            </Typography>
           </Paper>
         </Box>
       </Box>

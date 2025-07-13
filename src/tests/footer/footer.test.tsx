@@ -7,7 +7,7 @@ import Footer from '../../component/footer/Footer';
 describe("Footer component", () => {
   it("renders the footer text correctly", () => {
     render(<Footer />);
-    const footerText = screen.getByText(/© 2025 BrewBuddy. All rights reserved./i);
+    const footerText = screen.getByText(/© 2025 Coffee and CODE!, All rights reserved./i);
     expect(footerText).toBeInTheDocument();
   });
 });

@@ -1,13 +1,35 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, test } from "vitest";
 import Navbar from "../../component/navbar/Navbar";
 import { render, screen } from "@testing-library/react";
+import { beforeEach } from "node:test";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Navbar component", () => {
-  it("Nav bar rendered correctly", () => {
-    render(<Navbar />);
-    expect(screen.getByText(/Menu/i)).toBeInTheDocument();
-    expect(screen.getByText(/How It Works/i)).toBeInTheDocument();
-    expect(screen.getByText(/Sign In/i)).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 6 })).toBeInTheDocument();
+  beforeEach(() => {
+    render(<Navbar />, { wrapper: MemoryRouter });
   });
+
+  test("Logo link rendered", () => {
+    const logoLink = screen.getByRole("link", { name: /coffee and code/i });
+    expect(logoLink).toBeInTheDocument();
+    expect(logoLink).toHaveAttribute("href", "/");
+  });
+
+  test("Menu link rendered", () => {
+    const menuLink = screen.getByRole("link", { name: /menu/i });
+    expect(menuLink).toBeInTheDocument();
+    expect(menuLink).toHaveAttribute("href", "/menu");
+  });
+
+  test("About link rendered", () => {
+    const aboutLink = screen.getByRole("link", { name: /about/i });
+    expect(aboutLink).toBeInTheDocument();
+    expect(aboutLink).toHaveAttribute("href", "/about");
+  });
+
+  test("Login link rendered", ()=>{
+    const loginLink = screen.getByRole("link", {name:/login/i});
+    expect(loginLink).toBeInTheDocument()
+    expect(loginLink).toHaveAttribute("href", "/login" )
+  })
 });
