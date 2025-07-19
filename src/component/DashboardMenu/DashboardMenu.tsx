@@ -6,6 +6,7 @@ import { Box, Typography, Grid, Card, CardContent, CardMedia } from '@mui/materi
 
 
 const DashboardMenu: React.FC = () => {
+
   return (
     <Box sx={{ px: 3, py: 4 }}>
       <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
