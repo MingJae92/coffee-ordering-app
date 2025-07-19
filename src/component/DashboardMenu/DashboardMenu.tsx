@@ -1,64 +1,78 @@
-// src/component/CoffeeMenu/CoffeeMenu.tsx
-
 import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
-  Grid,
   Card,
   CardContent,
   CardMedia,
+  Skeleton,
 } from "@mui/material";
-import { CoffeeTypes } from "../../types/CoffeeTypes/CoffeeTypes.types";
 import axios from "axios";
+import { CoffeeTypes } from "../../types/CoffeeTypes/CoffeeTypes.types";
+
+import {
+  containerSx,
+  titleSx,
+  flexWrapperSx,
+  cardSx,
+  cardMediaSx,
+  cardContentSx,
+} from "../../styles/DashboardMenu/DashboardMenu.styles";
 
 const DashboardMenu: React.FC = () => {
   const [coffee, setCoffee] = useState<CoffeeTypes[]>([]);
-  const [loading, setloading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    const dataFetch = async () => {
+    const fetchData = async () => {
       try {
         const coffeeData = await axios.get(
           "http://localhost:7128/api/coffeemenu"
         );
-        const coffeeDataRes = coffeeData.data.coffee;
-        console.log(coffeeDataRes);
-        setCoffee(coffeeDataRes);
-      } catch (error) {
+        setCoffee(coffeeData.data.coffee);
+      } catch (err) {
         setError(true);
-        console.log("Load error", error);
+        console.error("Error loading coffee data:", err);
       } finally {
-        setloading(false);
+        setLoading(false);
       }
     };
-    dataFetch()
+    fetchData();
   }, []);
-  // if (error) {
-  //   return <div>Server error!</div>;
-  // }
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (error) return <Typography color="error">Server error!</Typography>;
+  if (loading) return <Skeleton variant="rectangular" width="100%" height={200} />;
+
   return (
-    <Box sx={{ px: 3, py: 4 }}>
-      <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
+    <Box sx={containerSx}>
+      <Typography variant="h4" sx={titleSx}>
         Coffee Menu
       </Typography>
-      <Grid container spacing={2}>
-        {coffee.map((item) => (
-          <div key={item.id}>
-            {item.title}
-            {item.description}
-            {item.ingredients}
 
-            <img src={item.image} />
-          </div>
+      <Box sx={flexWrapperSx}>
+        {coffee.map((item) => (
+          <Card key={item.id} sx={cardSx}>
+            <CardMedia
+              component="img"
+              image={item.image}
+              alt={item.title}
+              sx={cardMediaSx}
+            />
+            <CardContent sx={cardContentSx}>
+              <Typography variant="h6" fontWeight={600}>
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 1 }}>
+                {item.description}
+              </Typography>
+              <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                {item.ingredients.join(", ")}
+              </Typography>
+            </CardContent>
+          </Card>
         ))}
-        Grid
-      </Grid>
+      </Box>
     </Box>
   );
 };
