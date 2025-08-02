@@ -6,6 +6,7 @@ import {
   CardContent,
   CardMedia,
   Skeleton,
+  Button,
 } from "@mui/material";
 import axios from "axios";
 import { CoffeeTypes } from "../../types/CoffeeTypes/CoffeeTypes.types";
@@ -23,6 +24,7 @@ const DashboardMenu: React.FC = () => {
   const [coffee, setCoffee] = useState<CoffeeTypes[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  const [selectedCoffee, setSelectedCoffee] = useState<CoffeeTypes[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +32,9 @@ const DashboardMenu: React.FC = () => {
         const coffeeData = await axios.get(
           "http://localhost:7128/api/coffeemenu"
         );
+
         setCoffee(coffeeData.data.coffee);
+        console.log(coffeeData.data);
       } catch (err) {
         setError(true);
         console.error("Error loading coffee data:", err);
@@ -41,8 +45,14 @@ const DashboardMenu: React.FC = () => {
     fetchData();
   }, []);
 
+  const addToBasket = (item: CoffeeTypes): void => {
+  setSelectedCoffee((prev) => [...prev, item]);
+};
+
+
   if (error) return <Typography color="error">Server error!</Typography>;
-  if (loading) return <Skeleton variant="rectangular" width="100%" height={200} />;
+  if (loading)
+    return <Skeleton variant="rectangular" width="100%" height={200} />;
 
   return (
     <Box sx={containerSx}>
@@ -60,15 +70,36 @@ const DashboardMenu: React.FC = () => {
               sx={cardMediaSx}
             />
             <CardContent sx={cardContentSx}>
-              <Typography variant="h6" fontWeight={600}>
-                {item.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 1 }}>
-                {item.description}
-              </Typography>
-              <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
-                {item.ingredients.join(", ")}
-              </Typography>
+              <Box sx={{ px: 1 }}>
+                {" "}
+                {/* Optional: adjust px to match internal spacing */}
+                <Typography variant="h6" fontWeight={600}>
+                  {item.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    mt: 1,
+                    mb: 1,
+                    display: "-webkit-box",
+                    overflow: "hidden",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 3,
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {item.description}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ display: "block" }}
+                ></Typography>
+                <Button sx={{ mt: 1 }} onClick={() => addToBasket(item)}>
+                  Add
+                </Button>
+              </Box>
             </CardContent>
           </Card>
         ))}

@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "@mui/material";
 import {
-  FaCoffee,
-  FaChartLine,
-  FaUser,
-  FaShoppingCart,
-  FaCog,
-  FaSignOutAlt,
-} from "react-icons/fa";
-import {
   StyledDrawer,
   SidebarHeader,
   StyledList,
@@ -17,17 +9,11 @@ import {
   ActiveListItem,
   drawerWidth,
 } from "../../styles/SideBar/SideBar.styles";
+import { SideBarRoutes } from "../SidebarRoutes/SidebarRoutes";
+import { Link } from "react-router-dom"; // ✅ Step 1
 
 const Sidebar: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const links = [
-    { icon: <FaCoffee />, label: "Dashboard" },
-    { icon: <FaShoppingCart />, label: "Orders" },
-    { icon: <FaChartLine />, label: "Analytics" },
-    { icon: <FaUser />, label: "Customers" },
-    { icon: <FaCog />, label: "Settings" },
-  ];
 
   return (
     <StyledDrawer
@@ -36,28 +22,23 @@ const Sidebar: React.FC = () => {
       open
       sx={{ width: drawerWidth }}
     >
-      <SidebarHeader>☕</SidebarHeader>
-
       <StyledList>
-        {links.map((item, idx) =>
-          idx === activeIndex ? (
-            <ActiveListItem
+        {SideBarRoutes.map((item, idx) => {
+          const ListItemComponent = idx === activeIndex ? ActiveListItem : StyledListItem;
+
+          return (
+            <Link
+              to={item.path} // ✅ Step 2: Set route
               key={idx}
-              onClick={() => setActiveIndex(idx)}
-              aria-label={item.label}
+              style={{ textDecoration: "none", color: "inherit" }} // Optional: remove link styling
+              onClick={() => setActiveIndex(idx)} // ✅ Highlight current link
             >
-              <StyledListItemIcon>{item.icon}</StyledListItemIcon>
-            </ActiveListItem>
-          ) : (
-            <StyledListItem
-              key={idx}
-              onClick={() => setActiveIndex(idx)}
-              aria-label={item.label}
-            >
-              <StyledListItemIcon>{item.icon}</StyledListItemIcon>
-            </StyledListItem>
-          )
-        )}
+              <ListItemComponent aria-label={item.label}>
+                <StyledListItemIcon>{item.icon}</StyledListItemIcon>
+              </ListItemComponent>
+            </Link>
+          );
+        })}
       </StyledList>
     </StyledDrawer>
   );

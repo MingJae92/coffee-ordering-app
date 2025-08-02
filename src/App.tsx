@@ -7,6 +7,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from "./component/ProtectedRoutes/ProtectedRoutes";
 import { AuthProvider } from "./component/context/AuthContext";
 import NotFound from "./pages/NotFound/NotFound";
+import Basket from "./pages/Basket/Basket";
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound/>}/>
 
+        {/* Protected Dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -25,7 +26,11 @@ function App() {
               <Dashboard />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="basket" element={<Basket />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthProvider>
   );
