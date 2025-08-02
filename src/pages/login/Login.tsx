@@ -10,6 +10,7 @@ import { styles } from "../../styles/login/login.styles";
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
+  console.log("Current user:", login);
 
   const handleSuccess = async (credentialResponse: CredentialResponse) => {
     const token = credentialResponse.credential;

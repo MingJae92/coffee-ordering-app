@@ -1,4 +1,5 @@
 export interface UserDataTypes {
+  displayName: string;
   id: string;
   name: string;
   email: string;
