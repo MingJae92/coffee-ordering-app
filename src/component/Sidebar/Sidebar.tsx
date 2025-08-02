@@ -24,7 +24,8 @@ const Sidebar: React.FC = () => {
     >
       <StyledList>
         {SideBarRoutes.map((item, idx) => {
-          const ListItemComponent = idx === activeIndex ? ActiveListItem : StyledListItem;
+          const ListItemComponent =
+            idx === activeIndex ? ActiveListItem : StyledListItem;
 
           return (
             <Link

@@ -8,6 +8,9 @@ import ProtectedRoute from "./component/ProtectedRoutes/ProtectedRoutes";
 import { AuthProvider } from "./component/context/AuthContext";
 import NotFound from "./pages/NotFound/NotFound";
 import Basket from "./pages/Basket/Basket";
+import DashboardMenu from "./component/DashboardMenu/DashboardMenu";
+import CustomerHistory from "./component/CustomerHistory/CustomerHistory";
+import AccountSettings from "./component/AccountSettings/AccountSettings";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
           }
         >
           <Route path="basket" element={<Basket />} />
+          <Route path="menu" element={<DashboardMenu />} />
+          <Route path="customer-history" element={<CustomerHistory />} />
+          <Route path="account-settings" element={<AccountSettings />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
