@@ -10,7 +10,11 @@ import NotFound from "./pages/NotFound/NotFound";
 import Basket from "./pages/Basket/Basket";
 import DashboardMenu from "./component/DashboardMenu/DashboardMenu";
 import CustomerHistory from "./component/CustomerHistory/CustomerHistory";
-import AccountSettings from "./component/AccountSettings/AccountSettings";
+import CustomerSupport from "./component/CustomerSupport/CustomerSupport";
+import Checkout from "./pages/Checkout/Checkout";
+import DashboardHome from "./pages/DashboardHome/DashboardHomepage";
+import Receipts from "./pages/Reciepts/Reciepts";
+import CustomerFeedback from "./pages/CustomerFeedback/CustomerFeedback";
 
 function App() {
   return (
@@ -30,10 +34,14 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route path="Dashboardhome" element={<DashboardHome/>}/>
           <Route path="basket" element={<Basket />} />
           <Route path="menu" element={<DashboardMenu />} />
+          <Route path="checkout" element={<Checkout/>}/>
+          <Route path="reciepts" element={<Receipts/>}/>
           <Route path="customer-history" element={<CustomerHistory />} />
-          <Route path="account-settings" element={<AccountSettings />} />
+          <Route path="customer-support" element={<CustomerSupport />} />
+          <Route path="customer-feedback" element={<CustomerFeedback/>}/>
         </Route>
 
         <Route path="*" element={<NotFound />} />

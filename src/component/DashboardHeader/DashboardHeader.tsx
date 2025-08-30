@@ -48,7 +48,7 @@ const DashboardHeader: React.FC = () => {
         >
           {/* Left: Dashboard Title */}
           <Typography variant="h6" sx={{ fontWeight: 700, color: '#FDA402' }}>
-            Dashboard
+            COFFEE AND CODE
           </Typography>
 
           {/* Center: Search Bar */}
