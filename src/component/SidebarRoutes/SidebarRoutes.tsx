@@ -10,7 +10,7 @@ export const SideBarRoutes: SidebarRoutes[] = [
     icon: <FaShoppingCart />,
     path: "/dashboard/basket",
     label: "Basket",
-    component: <Basket />,
+    component: <Basket  />,
   },
   {
     icon: <FaMugHot />,

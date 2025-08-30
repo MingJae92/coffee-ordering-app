@@ -20,6 +20,7 @@ function Dashboard() {
           <Typography variant="h5" gutterBottom>
             Welcome {`${user.name}` }!
           </Typography>
+
           <Outlet /> {/* Renders /dashboard child components like /dashboard/basket */}
         </Box>
       </Box>
