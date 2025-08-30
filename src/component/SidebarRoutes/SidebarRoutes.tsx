@@ -1,4 +1,4 @@
-import { FaCog, FaMugHot, FaShoppingBag, FaUsers, FaShoppingCart, FaHome, FaReceipt, FaQuestionCircle, FaRegComments } from "react-icons/fa";
+import { FaCog, FaMugHot, FaShoppingBag, FaUsers, FaShoppingCart, FaHome, FaReceipt, FaQuestionCircle, FaRegComments, FaComments, FaHeadset } from "react-icons/fa";
 import Basket from "../../pages/Basket/Basket";
 import type SidebarRoutes from "../../types/SidebarTypes/SidebarRoutesTypes.types";
 import DashboardMenu from "../DashboardMenu/DashboardMenu";
@@ -49,7 +49,7 @@ export const SideBarRoutes: SidebarRoutes[] = [
     component: <CustomerHistory />,
   },
   {
-    icon: <FaQuestionCircle />,
+    icon: <FaHeadset />,
     path: "/dashboard/customer-support",
     label: "customer-support",
     component: <CustomerSupport />,

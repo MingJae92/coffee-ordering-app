@@ -2,7 +2,7 @@ import {
   createContext,
   useState,
   ReactNode,
-useContext,
+  useContext,
   useEffect,
 } from "react";
 import axios from "axios";
@@ -52,7 +52,7 @@ export const BasketProvider = ({ children }: { children: ReactNode }) => {
       if (existing) {
         return prev.map((item) =>
           item.id === coffee.id
-            ? { ...item, quantity: item.quantity + 1, }
+            ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       }
@@ -64,22 +64,23 @@ export const BasketProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeFromBasket = (id: number) => {
-  setSelectedCoffee((prev) => {
-    const updated = prev
-      .map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-      )
-      .filter((item) => item.quantity > 0);
+    setSelectedCoffee((prev) => {
+      const updated = prev
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter((item) => item.quantity > 0);
 
-    // Update total quantity
-    const totalQuantity = updated.reduce((sum, item) => sum + item.quantity, 0);
-    setQuantity(totalQuantity);
+      // Update total quantity
+      const totalQuantity = updated.reduce(
+        (sum, item) => sum + item.quantity,
+        0
+      );
+      setQuantity(totalQuantity);
 
-    return updated;
-  });
-};
-
-
+      return updated;
+    });
+  };
 
   const clearBasket = () => {
     setSelectedCoffee([]);
