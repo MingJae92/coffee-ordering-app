@@ -8,31 +8,30 @@ export interface CoffeeTypes {
 }
 
 // Each item in the basket
-// Option 1 (recommended): extend CoffeeTypes with quantity
 export interface BasketItem extends CoffeeTypes {
- 
   quantity: number;
 }
 
+// API response for all coffees
 export interface CoffeeResponse {
-  coffee:CoffeeTypes[]
+  coffee: CoffeeTypes[];
 }
 
 // Context for managing basket state
 export interface BasketContextType {
-  coffeeData: CoffeeTypes[]; // all coffees available
-  selectedCoffee: BasketItem[]; // basket items
+  coffeeData: CoffeeTypes[];          // all coffees available
+  selectedCoffee: BasketItem[];       // items in basket
   addToBasket: (coffee: CoffeeTypes) => void;
   removeFromBasket: (id: number) => void;
   clearBasket: () => void;
   loading: boolean;
   error: string | null;
-  quantity: number;
+  quantity: number;                   // total items in basket
 }
 
 // Props for Basket page/component
 export interface BasketProps {
-  selectedCoffee: BasketItem[]; // basket items
+  selectedCoffee: BasketItem[];
 }
 
 // Context for managing all coffees (optional)
@@ -49,4 +48,26 @@ export interface CoffeeModalProps {
   coffee: CoffeeTypes | null;
   open: boolean;
   onClose: () => void;
+}
+
+// Checkout-specific types
+export interface CheckoutOrders extends BasketItem {}
+
+export interface CustomerInfo {
+  name: string;
+  email: string;
+  phone: string;
+}
+
+// Context for managing checkout state
+export interface CheckoutContextType {
+  orders: CheckoutOrders[];
+  customerInfo: CustomerInfo;
+  pickupTime: string;                  // lowercase 'u' to match provider
+  reserved: boolean;
+  orderConfirmed: boolean;
+  updateCustomerInfo: (info: Partial<CustomerInfo>) => void;
+  setPickupTime: (time: string) => void;
+  reserveOrder: () => void;
+  confirmOrder: () => void;
 }

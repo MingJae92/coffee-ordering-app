@@ -1,13 +1,21 @@
 import React from "react";
 import { Button, Box, Typography } from "@mui/material";
 import { useBasket } from "../../component/CoffeeDashboardContext/CoffeeDashboardContext";
+import { useNavigate } from "react-router-dom";
 
 function Basket() {
-  const { selectedCoffee, removeFromBasket, clearBasket, quantity } = useBasket();
+  const navigate = useNavigate()
+  const { selectedCoffee, removeFromBasket, clearBasket, quantity } =
+    useBasket();
 
-  if (!selectedCoffee || selectedCoffee.length === 0) {
+  
+
+  const goToCheckOut = () => {
+if (!selectedCoffee || selectedCoffee.length === 0) {
     return <Typography variant="h6">Your basket is empty.</Typography>;
   }
+  navigate("/dashboard/checkout")
+  };
 
   return (
     <Box>
@@ -49,6 +57,7 @@ function Basket() {
       >
         Clear Basket
       </Button>
+      <Button onClick={goToCheckOut}>Checkout</Button>
     </Box>
   );
 }
