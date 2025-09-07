@@ -8,13 +8,16 @@ import {
   Box,
 } from "@mui/material";
 import { useCheckout } from "../../component/CoffeeCheckOutContext/CheckOutCoffeeContext";
+import CheckoutForm from "../../component/CheckoutForm/CheckoutForm";
 
 function Checkout() {
-  const { orders, customerInfo, pickupTime, reserved, orderConfirmed } =
-    useCheckout();
+  const { orders } = useCheckout();
 
   // Calculate subtotal of items
-  const subtotalItems = orders.reduce((acc, item) => acc + (item.quantity || 1), 0);
+  const subtotalItems = orders.reduce(
+    (acc, item) => acc + (item.quantity || 1),
+    0
+  );
 
   return (
     <Box sx={{ p: 3 }}>
@@ -64,40 +67,7 @@ function Checkout() {
       </Typography>
 
       {/* Customer Info Section */}
-      <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
-        Customer Info
-      </Typography>
-      <List>
-        <ListItem>
-          <ListItemText primary={`Name: ${customerInfo.name || "N/A"}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary={`Email: ${customerInfo.email || "N/A"}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary={`Phone: ${customerInfo.phone || "N/A"}`} />
-        </ListItem>
-      </List>
-
-      {/* Order Status */}
-      <Typography variant="h5" gutterBottom sx={{ mt: 3 }}>
-        Order Status
-      </Typography>
-      <List>
-        <ListItem>
-          <ListItemText
-            primary={`Pickup Time: ${pickupTime || "Not selected"}`}
-          />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary={`Reserved: ${reserved ? "Yes" : "No"}`} />
-        </ListItem>
-        <ListItem>
-          <ListItemText
-            primary={`Confirmed: ${orderConfirmed ? "Yes" : "No"}`}
-          />
-        </ListItem>
-      </List>
+      <CheckoutForm />
     </Box>
   );
 }
