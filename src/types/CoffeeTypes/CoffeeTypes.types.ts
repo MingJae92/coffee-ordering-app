@@ -5,11 +5,13 @@ export interface CoffeeTypes {
   description: string;
   image: string;
   ingredients: string[];
+
 }
 
 // Each item in the basket
 export interface BasketItem extends CoffeeTypes {
   quantity: number;
+  totalQuantity:number;
 }
 
 // API response for all coffees
@@ -66,6 +68,8 @@ export interface CheckoutContextType {
   pickupTime: string;                  // lowercase 'u' to match provider
   reserved: boolean;
   orderConfirmed: boolean;
+  quantity:number;
+  totalQuantity:number;
   updateCustomerInfo: (info: Partial<CustomerInfo>) => void;
   setPickupTime: (time: string) => void;
   reserveOrder: () => void;

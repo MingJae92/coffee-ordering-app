@@ -11,13 +11,13 @@ import { useCheckout } from "../../component/CoffeeCheckOutContext/CheckOutCoffe
 import CheckoutForm from "../../component/CheckoutForm/CheckoutForm";
 
 function Checkout() {
-  const { orders } = useCheckout();
+  const { orders, quantity } = useCheckout();
 
   // Calculate subtotal of items
-  const subtotalItems = orders.reduce(
-    (acc, item) => acc + (item.quantity || 1),
-    0
-  );
+  // const subtotalItems = orders.reduce(
+  //   (acc, item) => acc + (item.quantity || 1),
+  //   0
+  // );
 
   return (
     <Box sx={{ p: 3 }}>
@@ -63,7 +63,7 @@ function Checkout() {
 
       {/* Subtotal of items */}
       <Typography variant="h6" sx={{ mt: 2 }}>
-        Total Items: {subtotalItems}
+        Total Items: {quantity}
       </Typography>
 
       {/* Customer Info Section */}

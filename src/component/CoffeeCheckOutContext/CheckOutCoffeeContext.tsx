@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState, useContext } from "react";
+import { createContext, ReactNode, useEffect, useState, useContext, useMemo } from "react";
 import {
   CheckoutContextType,
   CheckoutOrders,
@@ -11,7 +11,7 @@ const CheckoutContext = createContext<CheckoutContextType | undefined>(
 );
 
 export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
-  const { selectedCoffee } = useBasket();
+  const { selectedCoffee, quantity } = useBasket();
   const [orders, setOrders] = useState<CheckoutOrders[]>([]);
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
     name: "",
@@ -26,6 +26,10 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     setOrders(selectedCoffee);
   }, [selectedCoffee]);
+
+  const totalQuantity = useMemo(()=>{
+    return orders.reduce((acc, order)=>acc + (order.quantity || 0), 0)
+  },[orders])
 
   const updateCustomerInfo = (info: Partial<CustomerInfo>) => {
     setCustomerInfo((prev) => ({ ...prev, ...info }));
@@ -42,6 +46,8 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
     setOrderConfirmed(true);
   };
 
+  
+
   return (
     <CheckoutContext.Provider
       value={{
@@ -52,6 +58,8 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
         orderConfirmed,
         updateCustomerInfo,
         setPickupTime,
+        quantity,
+        totalQuantity,
         reserveOrder: reserveOrderFunc,
         confirmOrder: confirmOrderFunc,
       }}
