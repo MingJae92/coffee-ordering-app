@@ -1,7 +1,7 @@
-// CustomerInfoForm.tsx
 import React from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import { useCheckout } from "../../component/CoffeeCheckOutContext/CheckOutCoffeeContext";
+import { useAuth } from "../context/AuthContext";
 
 function CustomerInfoForm() {
   const {
@@ -14,6 +14,7 @@ function CustomerInfoForm() {
     orderConfirmed,
     confirmOrder,
   } = useCheckout();
+  const{user}=useAuth()
 
   return (
     <Box sx={{ mt: 3, maxWidth: 400 }}>
@@ -21,32 +22,13 @@ function CustomerInfoForm() {
         Customer Details
       </Typography>
 
-      <TextField
-        label="Name"
-        value={customerInfo.name}
-        onChange={(e) => updateCustomerInfo({ name: e.target.value })}
-        fullWidth
-        sx={{ mb: 2 }}
-      />
+      {/* Display Customer Info */}
+      <Typography>Name: {user?.name}</Typography>
+      <Typography>Email: {user?.email}</Typography>
+      <Typography>ID: {user?.id}</Typography>
+      <Typography>Display Name: {user?.displayName}</Typography>
 
-      <TextField
-        label="Email"
-        type="email"
-        value={customerInfo.email}
-        onChange={(e) => updateCustomerInfo({ email: e.target.value })}
-        fullWidth
-        sx={{ mb: 2 }}
-      />
-
-      <TextField
-        label="Phone"
-        type="tel"
-        value={customerInfo.phone}
-        onChange={(e) => updateCustomerInfo({ phone: e.target.value })}
-        fullWidth
-        sx={{ mb: 2 }}
-      />
-
+      {/* Input for Pickup Time */}
       <TextField
         label="Pickup Time"
         type="time"
@@ -57,6 +39,7 @@ function CustomerInfoForm() {
         sx={{ mb: 2 }}
       />
 
+      {/* Reserve Button */}
       <Button
         variant="contained"
         color={reserved ? "success" : "primary"}
@@ -67,6 +50,7 @@ function CustomerInfoForm() {
         {reserved ? "Order Reserved" : "Reserve Order"}
       </Button>
 
+      {/* Confirm Button */}
       <Button
         variant="contained"
         color={orderConfirmed ? "success" : "secondary"}

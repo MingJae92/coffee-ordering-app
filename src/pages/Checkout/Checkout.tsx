@@ -6,33 +6,56 @@ import {
   ListItemText,
   Divider,
   Box,
+  Button,
 } from "@mui/material";
 import { useCheckout } from "../../component/CoffeeCheckOutContext/CheckOutCoffeeContext";
 import CheckoutForm from "../../component/CheckoutForm/CheckoutForm";
+import { useAuth } from "../../component/context/AuthContext";
+import axios from "axios";
 
 function Checkout() {
   const { orders, quantity } = useCheckout();
+  const { user } = useAuth();
 
-  // Calculate subtotal of items
-  // const subtotalItems = orders.reduce(
-  //   (acc, item) => acc + (item.quantity || 1),
-  //   0
-  // );
+  const handleCheckout = async () => {
+    if (!user) {
+      alert("You need to be logged in!");
+      return;
+    }
+
+    const coffeeReqData = {
+      userId: user.id,
+      basket: orders.map((item) => ({
+        productId: item.productId,
+        quantity: item.quantity,
+      })),
+      total: quantity,
+    };
+
+    console.log("Coffee checkout payload:", coffeeReqData);
+
+    try {
+      await axios.post("/api/checkout", coffeeReqData);
+      alert("Order placed successfully!");
+    } catch (error) {
+      console.error("Checkout failed:", error);
+      alert("There was an issue placing your order.");
+    }
+  };
 
   return (
     <Box sx={{ p: 3 }}>
-      {/* Title */}
       <Typography variant="h4" gutterBottom>
         Checkout Order
       </Typography>
+      
 
-      {/* Orders Section */}
       <Typography variant="h5" gutterBottom>
         Orders
       </Typography>
       <List>
         {orders.map((item) => (
-          <React.Fragment key={item.id}>
+          <React.Fragment key={item.productId}>
             <ListItem alignItems="flex-start">
               <Box sx={{ mr: 2 }}>
                 <img
@@ -50,7 +73,7 @@ function Checkout() {
                       {item.description}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Ingredients: {item.ingredients.join(", ")}
+                      Ingredients: {item.ingredients?.join(", ")}
                     </Typography>
                   </>
                 }
@@ -61,13 +84,20 @@ function Checkout() {
         ))}
       </List>
 
-      {/* Subtotal of items */}
       <Typography variant="h6" sx={{ mt: 2 }}>
         Total Items: {quantity}
       </Typography>
 
-      {/* Customer Info Section */}
       <CheckoutForm />
+
+      <Button
+        variant="contained"
+        color="primary"
+        sx={{ mt: 3 }}
+        onClick={handleCheckout}
+      >
+        Confirm Checkout
+      </Button>
     </Box>
   );
 }

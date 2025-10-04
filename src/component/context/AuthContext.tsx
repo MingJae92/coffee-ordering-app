@@ -6,7 +6,7 @@ import {
 } from "../../types/AuthContextTypes/AuthContextTypes.types";
 
 const AuthContext = createContext<AuthContextDataTypes>({
-  user: null,
+  user: null ,
   login: () => {},
   logout: () => {},
 });

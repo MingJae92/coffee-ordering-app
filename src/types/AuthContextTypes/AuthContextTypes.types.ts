@@ -1,3 +1,4 @@
+
 export interface UserDataTypes {
   displayName: string;
   id: string;
@@ -7,8 +8,8 @@ export interface UserDataTypes {
 }
 
 export interface AuthContextDataTypes {
-  user: UserDataTypes | null;
-  login: (user: UserDataTypes) => void;
+  user: UserDataTypes |null ;
+  login: (user:UserDataTypes) => void;
 
   logout: () => void;
 }

@@ -1,3 +1,5 @@
+import { UserDataTypes } from "../AuthContextTypes/AuthContextTypes.types";
+
 // Basic coffee info
 export interface CoffeeTypes {
   id: number;
@@ -5,12 +7,13 @@ export interface CoffeeTypes {
   description: string;
   image: string;
   ingredients: string[];
-
+  
 }
 
 // Each item in the basket
 export interface BasketItem extends CoffeeTypes {
   quantity: number;
+  productId:string;
   totalQuantity:number;
 }
 
@@ -53,19 +56,34 @@ export interface CoffeeModalProps {
 }
 
 // Checkout-specific types
-export interface CheckoutOrders extends BasketItem {}
-
-export interface CustomerInfo {
-  name: string;
-  email: string;
-  phone: string;
+export interface CheckoutOrders extends BasketItem {
+  productId: string;
 }
 
+export interface CustomerInfo {
+  displayName: string; 
+  id: string;          
+  name: string;        
+  email: string;       
+}
+
+export interface CustomerInfo extends Omit<UserDataTypes, "avatarUrl"> {}
+
+
+
+// export interface UserLogin {
+//   id:string;
+//   email:string;
+//   name:string;
+//   avatarUrl:string;
+// }
 // Context for managing checkout state
 export interface CheckoutContextType {
+  // userLogin: UserLogin | null
+  // setUserLogin: (userLogin:UserLogin| null)=>void;
   orders: CheckoutOrders[];
   customerInfo: CustomerInfo;
-  pickupTime: string;                  // lowercase 'u' to match provider
+  pickupTime: string;                 
   reserved: boolean;
   orderConfirmed: boolean;
   quantity:number;

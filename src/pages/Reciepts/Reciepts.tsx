@@ -1,5 +1,6 @@
 import React from "react";
 import { useCheckout } from "../../component/CoffeeCheckOutContext/CheckOutCoffeeContext";
+import { useAuth } from "../../component/context/AuthContext";
 
 function Receipts() {
   const {
@@ -13,6 +14,7 @@ function Receipts() {
     // boolean
     quantity
   } = useCheckout();
+  const {user}=useAuth()
 
   return (
     <div
@@ -30,14 +32,13 @@ function Receipts() {
       <section>
         <h4>Customer Info</h4>
         <p>
-          <strong>Name:</strong> {customerInfo.name}
+          <strong>Name:</strong> {user?.name}
         </p>
         <p>
-          <strong>Email:</strong> {customerInfo.email}
+          <strong>Email:</strong> {user?.email}
         </p>
-        <p>
-          <strong>Phone:</strong> {customerInfo.phone}
-        </p>
+        <p><strong>ID</strong>{user?.id}</p>
+        
       </section>
 
       {/* Reserved Items */}
