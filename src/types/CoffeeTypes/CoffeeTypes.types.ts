@@ -57,7 +57,7 @@ export interface CoffeeModalProps {
 
 // Checkout-specific types
 export interface CheckoutOrders extends BasketItem {
-  productId: string;
+  productId: string;   
 }
 
 export interface CustomerInfo {

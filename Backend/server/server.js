@@ -4,6 +4,8 @@ import cors from "cors";
 import authRoutes from "../routes/AuthRoutes/authRoutes.js";
 import fetchData from "../service/service.js";
 import coffeeRoutes from "../routes/CoffeeMenuRoutes/coffeeMenuRoutes.js"
+import coffeeCheckoutRoutes from "../routes/CoffeeCheckoutRoutes/coffeeCheckoutRoutes.js"
+
 
 dotenv.config({ path: "../config/.env" });
 
@@ -15,6 +17,8 @@ const PORT = process.env.SERVER_PORT || 5000;
 
 app.use("/api/auth", authRoutes);
 app.use("/api", coffeeRoutes)
+app.use("/api", coffeeCheckoutRoutes)
+
 app.listen(PORT, async () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 

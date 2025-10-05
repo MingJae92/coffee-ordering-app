@@ -35,7 +35,7 @@ function Checkout() {
     console.log("Coffee checkout payload:", coffeeReqData);
 
     try {
-      await axios.post("/api/checkout", coffeeReqData);
+      await axios.post("http://localhost:7128/api/checkout", coffeeReqData);
       alert("Order placed successfully!");
     } catch (error) {
       console.error("Checkout failed:", error);
