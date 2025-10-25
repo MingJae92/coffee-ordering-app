@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 function CustomerInfoForm() {
   const {
     customerInfo,
-    updateCustomerInfo,
+    // updateCustomerInfo,
     pickupTime,
     setPickupTime,
     reserved,

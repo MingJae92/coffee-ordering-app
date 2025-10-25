@@ -20,6 +20,7 @@ export const CoffeeProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<boolean>(false);
   const [selected, setSelected]=useState<CoffeeTypes | null>(null)
 
+
   useEffect(() => {
     const fetchData = async () => {
       setError(false);

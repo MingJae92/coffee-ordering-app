@@ -25,11 +25,15 @@ function Checkout() {
 
     const coffeeReqData = {
       userId: user.id,
+      
       basket: orders.map((item) => ({
         productId: item.productId,
         quantity: item.quantity,
+        title:item.title,
+        description:item.description
       })),
       total: quantity,
+      
     };
 
     console.log("Coffee checkout payload:", coffeeReqData);

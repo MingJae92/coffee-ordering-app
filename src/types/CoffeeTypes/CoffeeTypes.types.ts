@@ -88,7 +88,7 @@ export interface CheckoutContextType {
   orderConfirmed: boolean;
   quantity:number;
   totalQuantity:number;
-  updateCustomerInfo: (info: Partial<CustomerInfo>) => void;
+  // updateCustomerInfo: (info: Partial<CustomerInfo>) => void;
   setPickupTime: (time: string) => void;
   reserveOrder: () => void;
   confirmOrder: () => void;

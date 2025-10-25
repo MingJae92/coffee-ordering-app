@@ -13,7 +13,7 @@ import {
   // UserLogin,
 } from "../../types/CoffeeTypes/CoffeeTypes.types";
 import { useBasket } from "../CoffeeDashboardContext/CoffeeDashboardContext";
-import { useAuth } from "../context/AuthContext";
+// import { useAuth } from "../context/AuthContext";
 
 const CheckoutContext = createContext<CheckoutContextType | undefined>(
   undefined
@@ -43,9 +43,9 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
     return orders.reduce((acc, order) => acc + (order.quantity || 0), 0);
   }, [orders]);
 
-  const updateCustomerInfo = (info: Partial<CustomerInfo>) => {
-    setCustomerInfo((prev) => ({ ...prev, ...info }));
-  };
+  // const updateCustomerInfo = (info: Partial<CustomerInfo>) => {
+  //   setCustomerInfo((prev) => ({ ...prev, ...info }));
+  // };
 
   const reserveOrderFunc = () => {
     if (orders.length === 0) return alert("No coffee reserved");
@@ -61,12 +61,13 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
   return (
     <CheckoutContext.Provider
       value={{
+ 
         orders,
         customerInfo,
         pickupTime,
         reserved,
         orderConfirmed,
-        updateCustomerInfo,
+        // updateCustomerInfo,
         setPickupTime,
         quantity,
         totalQuantity,
