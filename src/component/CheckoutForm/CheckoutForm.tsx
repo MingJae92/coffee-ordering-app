@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 
 function CustomerInfoForm() {
   const {
-    customerInfo,
+    // customerInfo,
     // updateCustomerInfo,
     pickupTime,
     setPickupTime,
@@ -26,7 +26,7 @@ function CustomerInfoForm() {
       <Typography>Name: {user?.name}</Typography>
       <Typography>Email: {user?.email}</Typography>
       <Typography>ID: {user?.id}</Typography>
-      <Typography>Display Name: {user?.displayName}</Typography>
+
 
       {/* Input for Pickup Time */}
       <TextField

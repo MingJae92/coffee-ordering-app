@@ -33,11 +33,6 @@ const checkoutControllers = async (req, res) => {
 
     // ✅ Calculate subtotal (total coffees)
     const totalCoffees = basket.reduce((sum, item) => sum + item.quantity, 0);
-    const titles = basket.map((item)=>item.title)
-    const descriptions = basket.map((item)=>item.description)
-    const quantities = basket.map((item)=>item.quantity)
-
-
 
     const { data: existingSubtotal } = await supabase
       .from("checkout_orders_subtotal")
@@ -48,11 +43,11 @@ const checkoutControllers = async (req, res) => {
     const previousTotal = existingSubtotal ? existingSubtotal.total_coffees : 0;
     // const newTotal = previousTotal + totalCoffees;
 
-    const coffeeDetails = basket.map(({title, description, quantity})=>({
+    const coffeeDetails = basket.map(({ title, description, quantity }) => ({
       title,
       description,
-      quantity
-    }))
+      quantity,
+    }));
 
     // ✅ Upsert subtotal (insert or update if exists)
     const { data: subtotalData, error: subtotalError } = await supabase
@@ -62,7 +57,7 @@ const checkoutControllers = async (req, res) => {
           {
             user_id: userId,
             total_coffees: totalCoffees,
-            coffee_details:coffeeDetails
+            coffee_details: coffeeDetails,
           },
         ],
         { onConflict: "user_id" } // ensures each user only has one subtotal record

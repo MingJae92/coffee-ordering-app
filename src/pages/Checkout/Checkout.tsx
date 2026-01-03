@@ -14,7 +14,7 @@ import { useAuth } from "../../component/context/AuthContext";
 import axios from "axios";
 
 function Checkout() {
-  const { orders, quantity } = useCheckout();
+  const { orders, quantity, clearCheckout } = useCheckout();
   const { user } = useAuth();
 
   const handleCheckout = async () => {
@@ -23,17 +23,20 @@ function Checkout() {
       return;
     }
 
+    if (orders.length === 0) {
+      alert("Your basket is empty!");
+    }
+
     const coffeeReqData = {
       userId: user.id,
-      
+
       basket: orders.map((item) => ({
         productId: item.productId,
         quantity: item.quantity,
-        title:item.title,
-        description:item.description
+        title: item.title,
+        description: item.description,
       })),
       total: quantity,
-      
     };
 
     console.log("Coffee checkout payload:", coffeeReqData);
@@ -52,7 +55,6 @@ function Checkout() {
       <Typography variant="h4" gutterBottom>
         Checkout Order
       </Typography>
-      
 
       <Typography variant="h5" gutterBottom>
         Orders

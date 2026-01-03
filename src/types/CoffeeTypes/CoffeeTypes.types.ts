@@ -82,7 +82,7 @@ export interface CheckoutContextType {
   // userLogin: UserLogin | null
   // setUserLogin: (userLogin:UserLogin| null)=>void;
   orders: CheckoutOrders[];
-  customerInfo: CustomerInfo;
+  // customerInfo: CustomerInfo;
   pickupTime: string;                 
   reserved: boolean;
   orderConfirmed: boolean;
@@ -92,4 +92,14 @@ export interface CheckoutContextType {
   setPickupTime: (time: string) => void;
   reserveOrder: () => void;
   confirmOrder: () => void;
+  clearCheckout: ()=>void;
+}
+
+export interface Receipts
+  extends Pick<
+    CheckoutContextType,
+    "pickupTime" | "reserved" | "orderConfirmed" | "quantity" | "totalQuantity" | "orders"
+  > {
+  id: string;        // unique ID for each receipt
+  createdAt: string; // timestamp for when the receipt was made
 }

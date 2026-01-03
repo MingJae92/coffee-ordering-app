@@ -9,7 +9,8 @@ import {
 import {
   CheckoutContextType,
   CheckoutOrders,
-  CustomerInfo,
+  Receipts,
+
   // UserLogin,
 } from "../../types/CoffeeTypes/CoffeeTypes.types";
 import { useBasket } from "../CoffeeDashboardContext/CoffeeDashboardContext";
@@ -23,15 +24,10 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
   const { selectedCoffee, quantity } = useBasket();
   const [orders, setOrders] = useState<CheckoutOrders[]>([]);
 
-  const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
-    name: "",
-    email: "",
-    id: "",
-    displayName: "",
-  });
   const [pickupTime, setPickupTime] = useState<string>("");
   const [reserved, setReserved] = useState(false);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
+  // const [reciepts, setReciepts] = useState<Receipts[]>([]);
 
   // Sync basket into checkout orders
 
@@ -42,10 +38,6 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
   const totalQuantity = useMemo(() => {
     return orders.reduce((acc, order) => acc + (order.quantity || 0), 0);
   }, [orders]);
-
-  // const updateCustomerInfo = (info: Partial<CustomerInfo>) => {
-  //   setCustomerInfo((prev) => ({ ...prev, ...info }));
-  // };
 
   const reserveOrderFunc = () => {
     if (orders.length === 0) return alert("No coffee reserved");
@@ -58,12 +50,15 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
     setOrderConfirmed(true);
   };
 
+  function clearCheckoutBasket(): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <CheckoutContext.Provider
       value={{
- 
         orders,
-        customerInfo,
+        // customerInfo,
         pickupTime,
         reserved,
         orderConfirmed,
@@ -73,6 +68,7 @@ export const CheckoutProvider = ({ children }: { children: ReactNode }) => {
         totalQuantity,
         reserveOrder: reserveOrderFunc,
         confirmOrder: confirmOrderFunc,
+        clearCheckout:clearCheckoutBasket,
       }}
     >
       {children}
